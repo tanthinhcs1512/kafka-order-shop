@@ -1,0 +1,17 @@
+package com.sylleryum.order.repository;
+
+import com.sylleryum.order.entity.Order;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.Optional;
+
+@Repository
+@Transactional
+public interface OrderRepository extends CrudRepository<Order, Long> {
+
+    @Transactional
+    Optional<Order> findByOrderNumber(String orderNumber);
+
+}
